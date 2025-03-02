@@ -56,6 +56,10 @@ games)
 	;;
 bios)
 	sync_folder "$REMOTE_BIOS" "$LOCAL_BIOS_FOLDER" "Syncing BIOS files..." true
+ 	echo "Restarting EmulationStation..." > /dev/tty1
+	killall emulationstation
+	sleep 2
+	emulationstation >/dev/tty1 2>&1 &
 	;;
 full)
 	sync_folder "$REMOTE_MEDIA" "$LOCAL_MEDIA_FOLDER" "Syncing screensaver files..." false &
