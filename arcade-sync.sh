@@ -42,7 +42,7 @@ scrape_roms() {
 	done
 	
 	echo "Game list updated!" > /dev/tty1
-	emulationstation &
+	emulationstation >/dev/null 2>&1 &
 }
 
 case "$ARGUMENT" in
